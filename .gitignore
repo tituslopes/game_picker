@@ -50,3 +50,28 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+## Ignore environment variable file
+.env
+
+# Ignore the compiled binary files
+/bin/
+/obj/
+
+# Ignore the directory where the games' JSON file is stored
+config/games.json
+
+# Ignore other temporary or IDE-related files
+*.swp           # Vim swap files
+*.bak           # Backup files
+*.log           # Log files
+
+# Ignore any temporary files created by the system
+.DS_Store       # macOS system file
+Thumbs.db       # Windows system file
+
+# Ignore the Makefile's target binary
+game_picker
+
+# Ignore the build directory if you use a specific one
+/build/
