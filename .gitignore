@@ -58,8 +58,9 @@ dkms.conf
 /bin/
 /obj/
 
-# Ignore the directory where the games' JSON file is stored
+# Ignore the directory where the games' JSON file is stored (currently ignoring the hardcoded file as well)
 config/games.json
+data/games.json
 
 # Ignore other temporary or IDE-related files
 *.swp           # Vim swap files

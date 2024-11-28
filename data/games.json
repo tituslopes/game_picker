@@ -1,0 +1,9 @@
+{
+    "games": [
+        {"name": "The Witcher 3", "genre": "RPG", "playtime": 120},
+        {"name": "Cyberpunk 2077", "genre": "RPG", "playtime": 50},
+        {"name": "Minecraft", "genre": "Sandbox", "playtime": 200},
+        {"name": "Dota 2", "genre": "MOBA", "playtime": 350},
+        {"name": "Stardew Valley", "genre": "Simulation", "playtime": 80}
+    ]
+}
