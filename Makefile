@@ -1,5 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic
+SOURCES = src/main.c include/cjson/cJSON.c
 LIBS = -lcurl
 
 SRC_DIR = src

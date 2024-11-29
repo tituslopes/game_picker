@@ -24,8 +24,24 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "../include/cjson/cJSON.h"
+
+char* read_file(const char *filename) {
+  FILE *file = fopen(filename, "r");
+  if (file == NULL) {
+    perror("Error opening file");
+    return NULL;
+  }
+
+  fseek(file, 0, SEEK_END);
+  long length = ftell(file);
+  fseek(file, 0, SEEK_SET);
+}
 
 int main() {
 
-  return 0;
+
+ return 0;
 }
