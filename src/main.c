@@ -29,15 +29,36 @@
 #include "../include/cjson/cJSON.h"
 
 char* read_file(const char *filename) {
-  FILE *file = fopen(filename, "r");
-  if (file == NULL) {
+  FILE *fp = fopen("../config/games.json", "r");
+  if (fp == NULL) {
     perror("Error opening file");
     return NULL;
   }
 
-  fseek(file, 0, SEEK_END);
-  long length = ftell(file);
-  fseek(file, 0, SEEK_SET);
+  fseek(fp, 0, SEEK_END);
+  long file_size = ftell(fp);
+  fseek(fp, 0, SEEK_SET);
+
+  char *buffer = (char *)malloc(file_size + 1);
+  if (buffer == NULL) {
+    perror("Memory allocation error");
+    fclose(fp);
+    return NULL;
+  }
+
+  size_t read_size = fread(buffer, 1, file_size, fp);
+  if (read_size != file_size) {
+    perror("Error reading file");
+    free(buffer);
+    fclose(fp);
+    return NULL;
+  }
+  
+  buffer[file_size] = '\0';
+
+  fclose(fp);
+
+  return buffer;
 }
 
 int main() {
