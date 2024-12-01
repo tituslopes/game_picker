@@ -26,7 +26,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/cjson/cJSON.h"
+#include "../include/steam_api.h"
 
 char* read_file(const char *filename) {
   FILE *fp = fopen("../config/games.json", "r");
