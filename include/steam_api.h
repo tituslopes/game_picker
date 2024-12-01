@@ -1,7 +1,7 @@
 #ifndef STEAM_API_H
 #define STEAM_API_H
 
-#include "cjson/cJSON.h"
+#include "cJSON.h"
 
 cJSON* parse_steam_json(const char *json_data);
 

@@ -29,9 +29,9 @@
 #include "../include/steam_api.h"
 
 char* read_file(const char *filename) {
-  FILE *fp = fopen("../config/games.json", "r");
+  FILE *fp = fopen(filename, "r");
   if (fp == NULL) {
-    perror("Error opening file");
+    fprintf(stderr, "Error opening file %s\n", filename);
     return NULL;
   }
 
@@ -41,7 +41,7 @@ char* read_file(const char *filename) {
 
   char *buffer = (char *)malloc(file_size + 1);
   if (buffer == NULL) {
-    perror("Memory allocation error");
+    fprintf(stderr, "Error allocating memory for file contents\n");
     fclose(fp);
     return NULL;
   }
@@ -62,7 +62,22 @@ char* read_file(const char *filename) {
 }
 
 int main() {
+  const char *filename = "/home/kyoma/workspace/github/thiagobarufaldi/c_projects/game_picker/data/games.json";
 
+  char *json_data = read_file(filename);
+  if (json_data == NULL) {
+    return 1;
+  }
 
- return 0;
+  cJSON *json = parse_steam_json(json_data);
+  free(json_data);
+  if (json == NULL) {
+    return 1;
+  }
+
+  get_game_list(json);
+
+  free_steam_json(json);
+
+  return 0;
 }

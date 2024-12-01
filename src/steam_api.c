@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/cjson/cJSON.h"
+#include "../include/cJSON.h"
 #include "../include/steam_api.h"
 
 cJSON* parse_steam_json(const char *json_data) {

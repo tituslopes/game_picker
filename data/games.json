@@ -1,9 +1,24 @@
 {
+    "response": {
     "games": [
-        {"name": "The Witcher 3", "genre": "RPG", "playtime": 120},
-        {"name": "Cyberpunk 2077", "genre": "RPG", "playtime": 50},
-        {"name": "Minecraft", "genre": "Sandbox", "playtime": 200},
-        {"name": "Dota 2", "genre": "MOBA", "playtime": 350},
-        {"name": "Stardew Valley", "genre": "Simulation", "playtime": 80}
+      {
+        "appid": 440,
+        "name": "Half Life",
+        "playtime_forever": 5000,
+        "genres": ["Action", "Free to Play", "Multiplayer"]
+      },
+      {
+        "appid": 570,
+        "name": "Dota 2",
+        "playtime_forever": 10000,
+        "genres": ["Strategy", "Multiplayer", "Free to Play"]
+      },
+      {
+        "appid": 730,
+        "name": "Counter-Strike: Global Offensive",
+        "playtime_forever": 3500,
+        "genres": ["Action", "Multiplayer", "First-Person Shooter"]
+      }
     ]
+  }
 }
