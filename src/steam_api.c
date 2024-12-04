@@ -13,35 +13,49 @@ cJSON* parse_steam_json(const char *json_data) {
   return json;
 }
 
-void get_game_list(cJSON *json) {
+Game *get_game_list(cJSON *json, int *game_count) {
   if (json == NULL) {
-    return;
+    return NULL;
   }
 
   cJSON *response = cJSON_GetObjectItem(json, "response");
   if (response == NULL) {
     printf("No response for the current object\n");
-    return;
+    return NULL;
   }
 
   cJSON *games = cJSON_GetObjectItem(response, "games");
   if (games == NULL) {
     printf("No games found in the response\n");
-    return;
+    return NULL;
   }
 
-  int game_count = cJSON_GetArraySize(games);
-  for (int i = 0; i < game_count; i++) {
-    cJSON *game = cJSON_GetArrayItem(games, i);
-    if (game != NULL) {
-      cJSON *name = cJSON_GetObjectItem(game, "name");
-      cJSON *playtime = cJSON_GetObjectItem(game, "playtime_forever");
+  *game_count = cJSON_GetArraySize(games);
+  Game *game_list = malloc(*game_count * sizeof(Game));
 
-      if (name != NULL && playtime != NULL) {
-        printf("Game: %s\nPlaytime %d hours\n", name->valuestring, playtime->valueint / 60);
+  for (int i = 0; i < *game_count; i++) {
+    cJSON *game = cJSON_GetArrayItem(games, i);
+    if (game == NULL) continue;
+
+    cJSON *name = cJSON_GetObjectItem(game, "name");
+    cJSON *playtime_json = cJSON_GetObjectIem(game, "playtime_forever");
+
+
+    if (name == NULL || playtime_json == NULL) continue;
+
+    int playtime = playtime_json->valueint;
+    strncpy(game_list[i].name, name->valuestring, sizeof(game_list[i].name));
       }
     }
   }
+}
+
+void get_recommended_game(cJSON *json) {
+  if (json == NULL) {
+    return;
+  }
+
+
 }
 
 void free_steam_json(cJSON *json) {

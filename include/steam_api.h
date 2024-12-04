@@ -3,9 +3,15 @@
 
 #include "cJSON.h"
 
+typedef struct {
+    char name[256];
+    int playtime;
+    char genre[256];
+} Game;
+
 cJSON* parse_steam_json(const char *json_data);
 
-void get_game_list(cJSON *json);
+Game *get_game_list(cJSON *json, int *game_list);
 void free_steam_json(cJSON *json);
 
 #endif
