@@ -8,3 +8,6 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 # to do
 
 Include section on how to use the tool, include section with images of tool working.
+
+Use make install to install all dependencies.
+Use make clean to clean all dependencies.
