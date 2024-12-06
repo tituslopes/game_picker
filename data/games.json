@@ -1,23 +1,50 @@
 {
-    "response": {
+  "response": {
     "games": [
-      {
-        "appid": 440,
-        "name": "Half Life",
-        "playtime_forever": 5000,
-        "genres": ["Action", "Free to Play", "Multiplayer"]
-      },
       {
         "appid": 570,
         "name": "Dota 2",
-        "playtime_forever": 10000,
-        "genres": ["Strategy", "Multiplayer", "Free to Play"]
+        "playtime_forever": 123456,
+        "genres": [
+          {
+            "id": 1,
+            "description": "Action"
+          },
+          {
+            "id": 2,
+            "description": "Strategy"
+          }
+        ]
       },
       {
         "appid": 730,
         "name": "Counter-Strike: Global Offensive",
-        "playtime_forever": 3500,
-        "genres": ["Action", "Multiplayer", "First-Person Shooter"]
+        "playtime_forever": 98765,
+        "genres": [
+          {
+            "id": 1,
+            "description": "Action"
+          },
+          {
+            "id": 4,
+            "description": "Shooter"
+          }
+        ]
+      },
+      {
+        "appid": 252490,
+        "name": "Stardew Valley",
+        "playtime_forever": 4321,
+        "genres": [
+          {
+            "id": 3,
+            "description": "Role-Playing"
+          },
+          {
+            "id": 5,
+            "description": "Simulation"
+          }
+        ]
       }
     ]
   }

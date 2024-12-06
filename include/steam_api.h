@@ -4,6 +4,7 @@
 #include "cJSON.h"
 
 typedef struct {
+    int appid;
     char name[256];
     int playtime;
     char genre[256];

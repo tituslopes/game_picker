@@ -37,17 +37,17 @@ Game *get_game_list(cJSON *json, int *game_count) {
     cJSON *game = cJSON_GetArrayItem(games, i);
     if (game == NULL) continue;
 
-    cJSON *name = cJSON_GetObjectItem(game, "name");
-    cJSON *playtime_json = cJSON_GetObjectIem(game, "playtime_forever");
+    cJSON *appid_json = cJSON_GetObjectItem(game, "appid");
+    cJSON *name_json = cJSON_GetObjectItem(game, "name");
+    cJSON *playtime_json = cJSON_GetObjectItem(game, "playtime_forever");
 
+    if (name_json == NULL || playtime_json == NULL) continue;
 
-    if (name == NULL || playtime_json == NULL) continue;
-
-    int playtime = playtime_json->valueint;
-    strncpy(game_list[i].name, name->valuestring, sizeof(game_list[i].name));
-      }
+    game_list[i].appid = appid_json->valueint;
+    game_list[i].playtime = playtime_json->valueint;
+    strncpy(game_list[i].name, name_json->valuestring, sizeof(game_list[i].name));
+    
     }
-  }
 }
 
 void get_recommended_game(cJSON *json) {
